@@ -15,10 +15,8 @@ class String
   end
 
   def count_sentences
-    num_of_sentences = []
-    
-    num_of_sentences << self.split(/["!", "?", "."]/)
-    num_of_sentences.reject{|e| e.length == 0}
+    num_of_sentences = self.split(/["!", "?", "."]/)
+    num_of_sentences.delete_if{|sentence| sentence.empty?}
     num_of_sentences.count
     binding.pry
     true
